@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono:wght@400;700&family=Merriweather:ital,wght@0,300;0,700;1,300&display=swap');
+
+/* New v4 import (replaces @tailwind base, components, utilities) */
+@import "tailwindcss";
+
+/* New v4 configuration block */
+@theme {
+  --color-paper: #f4f1ea;
+  --color-paper-dark: #e3dfd3;
+  --color-ink: #1a1a1a;
+  --color-ink-light: #3a4042;
+  --color-accent: #8b7355;
+
+  --font-serif: "Merriweather", serif;
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  --background-image-graph-paper: linear-gradient(to right, #e3dfd3 1px, transparent 1px), linear-gradient(to bottom, #e3dfd3 1px, transparent 1px);
+  --background-image-blueprint: linear-gradient(to right, rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.1) 1px, transparent 1px);
+}
+
+/* Base Styles */
+body {
+  @apply bg-paper text-ink overflow-x-hidden;
+}
+
+::selection {
+  @apply bg-ink text-paper;
+}
+
+/* Custom Graph Paper Background Class */
+.bg-grid-pattern {
+  background-size: 20px 20px;
+}
+
+/* Industrial Hard Shadow for buttons/cards */
+.shadow-industrial {
+  box-shadow: 4px 4px 0px 0px rgba(26, 26, 26, 1);
+}
+.shadow-industrial:hover {
+  box-shadow: 2px 2px 0px 0px rgba(26, 26, 26, 1);
+  transform: translate(2px, 2px);
+}
