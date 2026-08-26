@@ -242,8 +242,18 @@ function EducationSection() {
         <h3 className="font-serif text-2xl font-bold">REVA University</h3>
         <p className="font-mono text-sm mt-1 mb-4 bg-ink text-paper inline-block px-2">B.Tech in Artificial Intelligence and Data Science</p>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
-          <StatBox label="Current Status" value="1st Year" />
+          <StatBox label="Done" value="1st Year (1st Sem)" />
           <StatBox label="CGPA" value="9.3" />
+          <StatBox label="Graduation" value="2029" />
+        </div>
+      </motion.div>
+      <motion.div initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp} className="border-l-2 border-ink ml-4 pl-8 relative">
+        <div className="absolute w-4 h-4 bg-accent border-2 border-ink rounded-full -left-[9px] top-0 shadow-industrial" />
+        {/* <h3 className="font-serif text-2xl font-bold">REVA University</h3>
+        <p className="font-mono text-sm mt-1 mb-4 bg-ink text-paper inline-block px-2">B.Tech in Artificial Intelligence and Data Science</p> */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
+          <StatBox label="Current Status" value="1st Year (2nd Sem)" />
+          <StatBox label="CGPA" value="9.25" />
           <StatBox label="Graduation" value="2029" />
         </div>
       </motion.div>
@@ -253,10 +263,10 @@ function EducationSection() {
 
 function SkillsSection() {
   const categories = [
-    { title: "Programming", icon: ">_", skills: ["Python", "Java", "C"] },
-    { title: "Data Science", icon: "{ }", skills: ["Pandas", "NumPy", "Machine Learning"] },
-    { title: "Web Dev", icon: "</>", skills: ["HTML", "CSS", "JavaScript Basics"] },
-    { title: "Tools & Core", icon: "[@]", skills: ["Git / GitHub", "Linux", "VS Code", "Data Structures & Algorithms"] },
+    { title: "Programming", icon: ">_", skills: ["Python", "Java", "C" ] },
+    { title: "Data Science", icon: "{ }", skills: ["Pandas", "NumPy", "Machine Learning" , "SQL"] },
+    { title: "Web Dev", icon: "</>", skills: ["HTML", "CSS", "JavaScript Basics" , "Vite"] },
+    { title: "Tools & Core", icon: "[@]", skills: ["Git / GitHub", "Linux", "Bash Scripting", "Data Structures & Algorithms"] },
   ];
 
   return (
@@ -295,7 +305,8 @@ function ProjectsSection() {
       title: "Chef AI",
       desc: "An AI-powered project utilizing the Gemini API to assist users with cooking-related tasks and generate intelligent recipe recommendations.",
       tags: ["Python", "NLP", "Gemini API", "AI"],
-      repo: "https://github.com/AquaA1/Chef-Ai"
+      repo: "https://github.com/AquaA1/Chef-Ai",
+      image: "/hrms.png"
     },
     {
       id: "02",
@@ -310,7 +321,14 @@ function ProjectsSection() {
       desc: "A structural system built for tracking books, managing user registries, and handling library operations efficiently.",
       tags: ["Java", "Database", "Management"],
       repo: "https://github.com/AquaA1/Libraray_management"
-    }
+    },
+    {
+      id: "04",
+      title: "Dayflow HRMS",
+      desc: "An enterprise-grade human resource management system for employee management, attendance tracking, leave workflows, payroll processing, and real-time workforce updates.",
+      tags: ["React", "FastAPI", "PostgreSQL", "Redis", "WebSockets", "JWT"],
+      repo: "https://github.com/Yaseen-711/odoo-HRMS"
+  }
   ];
 
   return (
@@ -331,7 +349,31 @@ function ProjectsSection() {
               <div className="absolute bottom-4 left-4 right-4 bg-white/10 backdrop-blur-md border border-white/20 p-2 font-mono text-[10px] text-white">
                 Fig {proj.id}: Architecture Draft
               </div>
+
             </div>
+
+            {/* this file helps to add the image but it remove the asthetic */}
+
+            {/* <a
+              href={proj.repo}
+              target="_blank"
+              rel="noreferrer"
+              className="md:col-span-7 h-64 md:h-80 bg-ink border-2 border-ink relative overflow-hidden shadow-industrial block group/image"
+            >
+              <img
+                src={proj.image}
+                alt={proj.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover/image:scale-105"
+              />
+
+              <div className="absolute inset-0 bg-black/0 group-hover/image:bg-black/40 transition-colors duration-300" />
+
+              <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover/image:opacity-100 transition-opacity duration-300">
+                <span className="font-mono text-white border border-white px-4 py-2">
+                  View Project ↗
+                </span>
+              </div>
+            </a> */}
 
             <div className="md:col-span-5 space-y-4 md:-ml-12 z-10 bg-paper/90 backdrop-blur-md p-8 border-2 border-ink shadow-industrial">
               <div className="font-mono text-xs text-accent uppercase tracking-widest">Case Study // {proj.id}</div>
@@ -406,11 +448,49 @@ function ContactSection() {
               </a>
             </div>
           </div>
-          <form className="space-y-4 font-mono">
+          {/* Removed the hardcoded email taking */}
+          {/* <form className="space-y-4 font-mono">
             <input type="text" placeholder="Name" className="w-full bg-paper border-2 border-ink p-3 text-sm focus:outline-none focus:border-accent" />
             <input type="email" placeholder="Email" className="w-full bg-paper border-2 border-ink p-3 text-sm focus:outline-none focus:border-accent" />
             <textarea placeholder="Message" rows={4} className="w-full bg-paper border-2 border-ink p-3 text-sm focus:outline-none focus:border-accent resize-none"></textarea>
             <button className="bg-ink text-paper w-full py-3 hover:bg-accent transition-colors font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-2">
+              Send Transmission ↗
+            </button>
+          </form> */}
+
+          <form
+            action="https://formspree.io/f/mzebpzeb"
+            method="POST"
+            className="space-y-4 font-mono"
+          >
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+              className="w-full bg-paper border-2 border-ink p-3 text-sm focus:outline-none focus:border-accent"
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              required
+              className="w-full bg-paper border-2 border-ink p-3 text-sm focus:outline-none focus:border-accent"
+            />
+
+            <textarea
+              name="message"
+              placeholder="Message"
+              rows={4}
+              required
+              className="w-full bg-paper border-2 border-ink p-3 text-sm focus:outline-none focus:border-accent resize-none"
+            ></textarea>
+
+            <button
+              type="submit"
+              className="bg-ink text-paper w-full py-3 hover:bg-accent transition-colors font-bold uppercase tracking-widest text-sm flex items-center justify-center gap-2"
+            >
               Send Transmission ↗
             </button>
           </form>
